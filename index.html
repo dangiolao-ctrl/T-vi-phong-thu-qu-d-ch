@@ -1,15 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Phong Thủy Việt Pro</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+padding:15px;
+}
+
+.header{
+background:linear-gradient(135deg,#c62828,#ffb300);
+color:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+margin-bottom:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.header h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.box{
+background:white;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.box h2{
+margin-bottom:12px;
+color:#c62828;
+}
+
+input,
+select,
+button{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+background:#c62828;
+color:white;
+font-weight:bold;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.result{
+margin-top:15px;
+line-height:1.8;
+}
+
+.item{
+padding:8px;
+border-bottom:1px solid #eee;
+}
+
+.good{
+color:green;
+font-weight:bold;
+}
+
+.bad{
+color:red;
+font-weight:bold;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:#666;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>☯️ PHONG THỦY VIỆT PRO</h1>
+<p>Tử Vi - Ngũ Hành - Cung Mệnh</p>
+</div>
+
 <div class="box">
 
-<h2>🔮 TỬ VI PHONG THỦY</h2>
+<h2>🔮 Thông Tin Cá Nhân</h2>
 
-<input type="text" id="hoten" placeholder="Họ và tên">
+<input
+type="text"
+id="hoten"
+placeholder="Họ và tên">
 
 <select id="gioitinh">
-<option value="nam">Nam</option>
-<option value="nu">Nữ</option>
+<option value="Nam">Nam</option>
+<option value="Nữ">Nữ</option>
 </select>
 
-<input type="date" id="ngaysinh">
+<input
+type="date"
+id="ngaysinh">
 
 <select id="giosinh">
 <option value="Tý">Tý (23h-01h)</option>
@@ -26,12 +142,17 @@
 <option value="Hợi">Hợi (21h-23h)</option>
 </select>
 
-<button onclick="xemTuVi()">Xem Tử Vi</button>
+<button onclick="xemTuVi()">
+XEM TỬ VI
+</button>
 
-<div id="ketquatuvi"></div>
+<div id="ketqua" class="result"></div>
 
 </div>
 
+<div class="footer">
+Phong Thủy Việt Pro 1.0
+</div>
 <script>
 
 function xemTuVi(){
@@ -42,7 +163,7 @@ let ns=document.getElementById("ngaysinh").value;
 let gio=document.getElementById("giosinh").value;
 
 if(!ns){
-alert("Chọn ngày sinh");
+alert("Vui lòng chọn ngày sinh");
 return;
 }
 
@@ -63,35 +184,64 @@ const chi=[
 let canchi=
 can[nam%10]+" "+chi[nam%12];
 
-let hanh="";
+let menh="";
+let mauhop="";
+let mauky="";
+let huonghop="";
 
-if(
-canchi.includes("Kim")
-){
-hanh="Kim";
-}
-else{
+switch(nam%5){
 
-const nguhanh=[
-"Kim","Kim",
-"Thủy","Thủy",
-"Mộc","Mộc",
-"Hỏa","Hỏa",
-"Thổ","Thổ"
-];
+case 0:
+menh="Kim";
+mauhop="Trắng, Bạc, Vàng";
+mauky="Đỏ, Hồng";
+huonghop="Tây, Tây Bắc";
+break;
 
-hanh=nguhanh[nam%10];
+case 1:
+menh="Thủy";
+mauhop="Đen, Xanh Dương";
+mauky="Vàng, Nâu";
+huonghop="Bắc";
+break;
+
+case 2:
+menh="Hỏa";
+mauhop="Đỏ, Cam, Tím";
+mauky="Đen";
+huonghop="Nam";
+break;
+
+case 3:
+menh="Thổ";
+mauhop="Vàng, Nâu";
+mauky="Xanh Lá";
+huonghop="Đông Bắc, Tây Nam";
+break;
+
+case 4:
+menh="Mộc";
+mauhop="Xanh Lá";
+mauky="Trắng";
+huonghop="Đông, Đông Nam";
+break;
+
 }
 
 let cung="";
 
-if(gt=="nam"){
+if(gt==="Nam"){
 
 const cungNam=[
-"Khảm","Ly","Cấn",
-"Đoài","Càn",
-"Khôn","Tốn",
-"Chấn","Khôn"
+"Khảm",
+"Ly",
+"Cấn",
+"Đoài",
+"Càn",
+"Khôn",
+"Tốn",
+"Chấn",
+"Khôn"
 ];
 
 cung=cungNam[nam%9];
@@ -99,10 +249,15 @@ cung=cungNam[nam%9];
 }else{
 
 const cungNu=[
-"Cấn","Càn","Đoài",
-"Cấn","Ly",
-"Khảm","Khôn",
-"Chấn","Tốn"
+"Cấn",
+"Càn",
+"Đoài",
+"Cấn",
+"Ly",
+"Khảm",
+"Khôn",
+"Chấn",
+"Tốn"
 ];
 
 cung=cungNu[nam%9];
@@ -110,29 +265,185 @@ cung=cungNu[nam%9];
 }
 
 let somayman=
-(
-nam+
-gio.charCodeAt(0)
-)%99+1;
+((nam*7)+gio.charCodeAt(0))%99+1;
 
-document.getElementById("ketquatuvi").innerHTML=`
+localStorage.setItem("hoten",ten);
+localStorage.setItem("gioitinh",gt);
+localStorage.setItem("ngaysinh",ns);
+localStorage.setItem("giosinh",gio);
 
-<h3>${ten}</h3>
+document.getElementById("ketqua").innerHTML=`
 
-<p><b>Ngày sinh dương:</b> ${ns}</p>
+<div class="item">
+<b>Họ tên:</b> ${ten}
+</div>
 
-<p><b>Giờ sinh:</b> ${gio}</p>
+<div class="item">
+<b>Năm sinh:</b> ${nam}
+</div>
 
-<p><b>Can Chi:</b> ${canchi}</p>
+<div class="item">
+<b>Giờ sinh:</b> ${gio}
+</div>
 
-<p><b>Ngũ Hành:</b> ${hanh}</p>
+<div class="item">
+<b>Can Chi:</b> ${canchi}
+</div>
 
-<p><b>Cung Mệnh:</b> ${cung}</p>
+<div class="item">
+<b>Mệnh:</b> ${menh}
+</div>
 
-<p><b>Số May Mắn:</b> ${somayman}</p>
+<div class="item">
+<b>Cung Phi:</b> ${cung}
+</div>
+
+<div class="item good">
+<b>Màu hợp:</b> ${mauhop}
+</div>
+
+<div class="item bad">
+<b>Màu kỵ:</b> ${mauky}
+</div>
+
+<div class="item">
+<b>Hướng hợp:</b> ${huonghop}
+</div>
+
+<div class="item">
+<b>Số may mắn:</b> ${somayman}
+</div>
+
+`;
+
+}
+
+window.onload=function(){
+
+if(localStorage.getItem("hoten")){
+
+document.getElementById("hoten").value=
+localStorage.getItem("hoten");
+
+document.getElementById("gioitinh").value=
+localStorage.getItem("gioitinh");
+
+document.getElementById("ngaysinh").value=
+localStorage.getItem("ngaysinh");
+
+document.getElementById("giosinh").value=
+localStorage.getItem("giosinh");
+
+}
+
+}
+
+</script>
+<div class="box">
+
+<h2>⭐ KẾT QUẢ MỞ RỘNG</h2>
+
+<div id="ketqua2"></div>
+
+</div>
+
+<script>
+
+const tamHop={
+
+"Tý":"Thân - Thìn",
+"Sửu":"Tỵ - Dậu",
+"Dần":"Ngọ - Tuất",
+"Mão":"Mùi - Hợi",
+"Thìn":"Tý - Thân",
+"Tỵ":"Sửu - Dậu",
+"Ngọ":"Dần - Tuất",
+"Mùi":"Mão - Hợi",
+"Thân":"Tý - Thìn",
+"Dậu":"Sửu - Tỵ",
+"Tuất":"Dần - Ngọ",
+"Hợi":"Mão - Mùi"
+
+};
+
+const tuHanhXung={
+
+"Tý":"Ngọ",
+"Sửu":"Mùi",
+"Dần":"Thân",
+"Mão":"Dậu",
+"Thìn":"Tuất",
+"Tỵ":"Hợi",
+"Ngọ":"Tý",
+"Mùi":"Sửu",
+"Thân":"Dần",
+"Dậu":"Mão",
+"Tuất":"Thìn",
+"Hợi":"Tỵ"
+
+};
+
+const gioHoangDao=[
+"Tý","Sửu",
+"Mão","Ngọ",
+"Thân","Dậu"
+];
+
+const xemTuViCu=xemTuVi;
+
+xemTuVi=function(){
+
+xemTuViCu();
+
+let ns=document.getElementById("ngaysinh").value;
+
+if(!ns)return;
+
+let nam=parseInt(ns.split("-")[0]);
+
+const chi=[
+"Thân","Dậu","Tuất","Hợi",
+"Tý","Sửu","Dần","Mão",
+"Thìn","Tỵ","Ngọ","Mùi"
+];
+
+let tuoiChi=chi[nam%12];
+
+let diem=(nam%100)%10+90;
+
+if(diem>100){
+diem=100;
+}
+
+document.getElementById("ketqua2").innerHTML=`
+
+<div class="item">
+<b>Âm lịch:</b> Chức năng nâng cấp ở bản Pro
+</div>
+
+<div class="item">
+<b>Tam hợp:</b> ${tamHop[tuoiChi]}
+</div>
+
+<div class="item">
+<b>Tứ hành xung:</b> ${tuHanhXung[tuoiChi]}
+</div>
+
+<div class="item">
+<b>Giờ hoàng đạo:</b>
+${gioHoangDao.join(", ")}
+</div>
+
+<div class="item good">
+<b>Điểm phong thủy:</b>
+${diem}/100
+</div>
 
 `;
 
 }
 
 </script>
+
+</body>
+</html>
