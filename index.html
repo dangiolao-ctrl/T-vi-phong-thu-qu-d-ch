@@ -2,7 +2,6 @@
 <html lang="vi">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -46,6 +45,12 @@ margin-bottom:8px;
 .header p{
 font-size:14px;
 opacity:.9;
+}
+
+#dongho{
+margin-top:12px;
+font-size:15px;
+line-height:1.8;
 }
 
 .card{
@@ -103,16 +108,6 @@ opacity:.95;
 display:none;
 }
 
-.result-item{
-padding:10px 0;
-border-bottom:1px solid #eee;
-}
-
-.result-label{
-font-weight:bold;
-color:#b71c1c;
-}
-
 .footer{
 text-align:center;
 margin-top:20px;
@@ -121,7 +116,6 @@ color:#777;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -129,8 +123,15 @@ color:#777;
 <div class="container">
 
 <div class="header">
+
 <h1>☯️ PHONG THỦY VIỆT PRO</h1>
+
 <p>Tử Vi • Ngũ Hành • Bát Trạch • Can Chi</p>
+
+<div id="dongho">
+Đang tải...
+</div>
+
 </div>
 
 <div class="card">
@@ -186,21 +187,6 @@ XEM TỬ VI
 📜 Kết Quả
 </div>
 
-<div class="result-item">
-<span class="result-label">Can Chi:</span>
-...
-</div>
-
-<div class="result-item">
-<span class="result-label">Nạp Âm:</span>
-...
-</div>
-
-<div class="result-item">
-<span class="result-label">Ngũ Hành:</span>
-...
-</div>
-
 </div>
 
 <div class="footer">
@@ -208,6 +194,57 @@ Phong Thủy Việt Pro © 2026
 </div>
 
 </div>
+
+<script>
+
+function capNhatThoiGian(){
+
+const now=new Date();
+
+const thu=[
+"Chủ Nhật",
+"Thứ Hai",
+"Thứ Ba",
+"Thứ Tư",
+"Thứ Năm",
+"Thứ Sáu",
+"Thứ Bảy"
+];
+
+let ngay=
+String(now.getDate()).padStart(2,'0');
+
+let thang=
+String(now.getMonth()+1).padStart(2,'0');
+
+let nam=
+now.getFullYear();
+
+let gio=
+String(now.getHours()).padStart(2,'0');
+
+let phut=
+String(now.getMinutes()).padStart(2,'0');
+
+let giay=
+String(now.getSeconds()).padStart(2,'0');
+
+document.getElementById("dongho").innerHTML=
+`
+📅 ${thu[now.getDay()]}
+<br>
+🗓️ ${ngay}/${thang}/${nam}
+<br>
+🕒 ${gio}:${phut}:${giay} (24h)
+`;
+
+}
+
+capNhatThoiGian();
+
+setInterval(capNhatThoiGian,1000);
+
+</script>
 
 </body>
 </html>
