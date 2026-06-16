@@ -2,8 +2,9 @@
 <html lang="vi">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Phong Thủy Việt Pro</title>
 
@@ -17,433 +18,196 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
-background:#f5f5f5;
+background:#f3f4f6;
 padding:15px;
+color:#333;
+}
+
+.container{
+max-width:700px;
+margin:auto;
 }
 
 .header{
-background:linear-gradient(135deg,#c62828,#ffb300);
+background:linear-gradient(135deg,#b71c1c,#f57c00);
 color:white;
 padding:20px;
-border-radius:15px;
+border-radius:16px;
 text-align:center;
 margin-bottom:15px;
-box-shadow:0 3px 10px rgba(0,0,0,0.2);
+box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
 .header h1{
 font-size:28px;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
-.box{
+.header p{
+font-size:14px;
+opacity:.9;
+}
+
+.card{
 background:white;
-padding:15px;
-border-radius:15px;
+border-radius:16px;
+padding:18px;
 margin-bottom:15px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
-.box h2{
-margin-bottom:12px;
-color:#c62828;
+.card-title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px;
+color:#b71c1c;
+border-left:5px solid #f57c00;
+padding-left:10px;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin-bottom:6px;
+margin-top:12px;
 }
 
 input,
-select,
-button{
+select{
 width:100%;
 padding:12px;
-margin:8px 0;
-border:1px solid #ccc;
+border:1px solid #ddd;
 border-radius:10px;
 font-size:16px;
+background:white;
 }
 
 button{
-background:#c62828;
-color:white;
-font-weight:bold;
+width:100%;
+padding:14px;
+margin-top:18px;
 border:none;
+border-radius:10px;
+background:#b71c1c;
+color:white;
+font-size:17px;
+font-weight:bold;
 cursor:pointer;
 }
 
 button:hover{
-opacity:0.9;
+opacity:.95;
 }
 
 .result{
-margin-top:15px;
-line-height:1.8;
+display:none;
 }
 
-.item{
-padding:8px;
+.result-item{
+padding:10px 0;
 border-bottom:1px solid #eee;
 }
 
-.good{
-color:green;
+.result-label{
 font-weight:bold;
-}
-
-.bad{
-color:red;
-font-weight:bold;
+color:#b71c1c;
 }
 
 .footer{
 text-align:center;
-padding:20px;
-color:#666;
-font-size:14px;
+margin-top:20px;
+font-size:13px;
+color:#777;
 }
 
 </style>
+
 </head>
 
 <body>
 
+<div class="container">
+
 <div class="header">
 <h1>☯️ PHONG THỦY VIỆT PRO</h1>
-<p>Tử Vi - Ngũ Hành - Cung Mệnh</p>
+<p>Tử Vi • Ngũ Hành • Bát Trạch • Can Chi</p>
 </div>
 
-<div class="box">
+<div class="card">
 
-<h2>🔮 Thông Tin Cá Nhân</h2>
+<div class="card-title">
+🔮 Thông Tin Cá Nhân
+</div>
 
+<label>Họ và tên</label>
 <input
 type="text"
 id="hoten"
-placeholder="Họ và tên">
+placeholder="Nhập họ và tên">
 
+<label>Giới tính</label>
 <select id="gioitinh">
-<option value="Nam">Nam</option>
-<option value="Nữ">Nữ</option>
+<option>Nam</option>
+<option>Nữ</option>
 </select>
 
+<label>Ngày sinh dương lịch</label>
 <input
 type="date"
 id="ngaysinh">
 
+<label>Giờ sinh</label>
 <select id="giosinh">
-<option value="Tý">Tý (23h-01h)</option>
-<option value="Sửu">Sửu (01h-03h)</option>
-<option value="Dần">Dần (03h-05h)</option>
-<option value="Mão">Mão (05h-07h)</option>
-<option value="Thìn">Thìn (07h-09h)</option>
-<option value="Tỵ">Tỵ (09h-11h)</option>
-<option value="Ngọ">Ngọ (11h-13h)</option>
-<option value="Mùi">Mùi (13h-15h)</option>
-<option value="Thân">Thân (15h-17h)</option>
-<option value="Dậu">Dậu (17h-19h)</option>
-<option value="Tuất">Tuất (19h-21h)</option>
-<option value="Hợi">Hợi (21h-23h)</option>
+
+<option>Tý (23h-01h)</option>
+<option>Sửu (01h-03h)</option>
+<option>Dần (03h-05h)</option>
+<option>Mão (05h-07h)</option>
+<option>Thìn (07h-09h)</option>
+<option>Tỵ (09h-11h)</option>
+<option>Ngọ (11h-13h)</option>
+<option>Mùi (13h-15h)</option>
+<option>Thân (15h-17h)</option>
+<option>Dậu (17h-19h)</option>
+<option>Tuất (19h-21h)</option>
+<option>Hợi (21h-23h)</option>
+
 </select>
 
-<button onclick="xemTuVi()">
+<button>
 XEM TỬ VI
 </button>
 
-<div id="ketqua" class="result"></div>
+</div>
+
+<div class="card result" id="ketqua">
+
+<div class="card-title">
+📜 Kết Quả
+</div>
+
+<div class="result-item">
+<span class="result-label">Can Chi:</span>
+...
+</div>
+
+<div class="result-item">
+<span class="result-label">Nạp Âm:</span>
+...
+</div>
+
+<div class="result-item">
+<span class="result-label">Ngũ Hành:</span>
+...
+</div>
 
 </div>
 
 <div class="footer">
-Phong Thủy Việt Pro 1.0
-</div>
-<script>
-
-function xemTuVi(){
-
-let ten=document.getElementById("hoten").value;
-let gt=document.getElementById("gioitinh").value;
-let ns=document.getElementById("ngaysinh").value;
-let gio=document.getElementById("giosinh").value;
-
-if(!ns){
-alert("Vui lòng chọn ngày sinh");
-return;
-}
-
-let nam=parseInt(ns.split("-")[0]);
-
-const can=[
-"Canh","Tân","Nhâm","Quý",
-"Giáp","Ất","Bính","Đinh",
-"Mậu","Kỷ"
-];
-
-const chi=[
-"Thân","Dậu","Tuất","Hợi",
-"Tý","Sửu","Dần","Mão",
-"Thìn","Tỵ","Ngọ","Mùi"
-];
-
-let canchi=
-can[nam%10]+" "+chi[nam%12];
-
-let menh="";
-let mauhop="";
-let mauky="";
-let huonghop="";
-
-switch(nam%5){
-
-case 0:
-menh="Kim";
-mauhop="Trắng, Bạc, Vàng";
-mauky="Đỏ, Hồng";
-huonghop="Tây, Tây Bắc";
-break;
-
-case 1:
-menh="Thủy";
-mauhop="Đen, Xanh Dương";
-mauky="Vàng, Nâu";
-huonghop="Bắc";
-break;
-
-case 2:
-menh="Hỏa";
-mauhop="Đỏ, Cam, Tím";
-mauky="Đen";
-huonghop="Nam";
-break;
-
-case 3:
-menh="Thổ";
-mauhop="Vàng, Nâu";
-mauky="Xanh Lá";
-huonghop="Đông Bắc, Tây Nam";
-break;
-
-case 4:
-menh="Mộc";
-mauhop="Xanh Lá";
-mauky="Trắng";
-huonghop="Đông, Đông Nam";
-break;
-
-}
-
-let cung="";
-
-if(gt==="Nam"){
-
-const cungNam=[
-"Khảm",
-"Ly",
-"Cấn",
-"Đoài",
-"Càn",
-"Khôn",
-"Tốn",
-"Chấn",
-"Khôn"
-];
-
-cung=cungNam[nam%9];
-
-}else{
-
-const cungNu=[
-"Cấn",
-"Càn",
-"Đoài",
-"Cấn",
-"Ly",
-"Khảm",
-"Khôn",
-"Chấn",
-"Tốn"
-];
-
-cung=cungNu[nam%9];
-
-}
-
-let somayman=
-((nam*7)+gio.charCodeAt(0))%99+1;
-
-localStorage.setItem("hoten",ten);
-localStorage.setItem("gioitinh",gt);
-localStorage.setItem("ngaysinh",ns);
-localStorage.setItem("giosinh",gio);
-
-document.getElementById("ketqua").innerHTML=`
-
-<div class="item">
-<b>Họ tên:</b> ${ten}
+Phong Thủy Việt Pro © 2026
 </div>
 
-<div class="item">
-<b>Năm sinh:</b> ${nam}
 </div>
-
-<div class="item">
-<b>Giờ sinh:</b> ${gio}
-</div>
-
-<div class="item">
-<b>Can Chi:</b> ${canchi}
-</div>
-
-<div class="item">
-<b>Mệnh:</b> ${menh}
-</div>
-
-<div class="item">
-<b>Cung Phi:</b> ${cung}
-</div>
-
-<div class="item good">
-<b>Màu hợp:</b> ${mauhop}
-</div>
-
-<div class="item bad">
-<b>Màu kỵ:</b> ${mauky}
-</div>
-
-<div class="item">
-<b>Hướng hợp:</b> ${huonghop}
-</div>
-
-<div class="item">
-<b>Số may mắn:</b> ${somayman}
-</div>
-
-`;
-
-}
-
-window.onload=function(){
-
-if(localStorage.getItem("hoten")){
-
-document.getElementById("hoten").value=
-localStorage.getItem("hoten");
-
-document.getElementById("gioitinh").value=
-localStorage.getItem("gioitinh");
-
-document.getElementById("ngaysinh").value=
-localStorage.getItem("ngaysinh");
-
-document.getElementById("giosinh").value=
-localStorage.getItem("giosinh");
-
-}
-
-}
-
-</script>
-<div class="box">
-
-<h2>⭐ KẾT QUẢ MỞ RỘNG</h2>
-
-<div id="ketqua2"></div>
-
-</div>
-
-<script>
-
-const tamHop={
-
-"Tý":"Thân - Thìn",
-"Sửu":"Tỵ - Dậu",
-"Dần":"Ngọ - Tuất",
-"Mão":"Mùi - Hợi",
-"Thìn":"Tý - Thân",
-"Tỵ":"Sửu - Dậu",
-"Ngọ":"Dần - Tuất",
-"Mùi":"Mão - Hợi",
-"Thân":"Tý - Thìn",
-"Dậu":"Sửu - Tỵ",
-"Tuất":"Dần - Ngọ",
-"Hợi":"Mão - Mùi"
-
-};
-
-const tuHanhXung={
-
-"Tý":"Ngọ",
-"Sửu":"Mùi",
-"Dần":"Thân",
-"Mão":"Dậu",
-"Thìn":"Tuất",
-"Tỵ":"Hợi",
-"Ngọ":"Tý",
-"Mùi":"Sửu",
-"Thân":"Dần",
-"Dậu":"Mão",
-"Tuất":"Thìn",
-"Hợi":"Tỵ"
-
-};
-
-const gioHoangDao=[
-"Tý","Sửu",
-"Mão","Ngọ",
-"Thân","Dậu"
-];
-
-const xemTuViCu=xemTuVi;
-
-xemTuVi=function(){
-
-xemTuViCu();
-
-let ns=document.getElementById("ngaysinh").value;
-
-if(!ns)return;
-
-let nam=parseInt(ns.split("-")[0]);
-
-const chi=[
-"Thân","Dậu","Tuất","Hợi",
-"Tý","Sửu","Dần","Mão",
-"Thìn","Tỵ","Ngọ","Mùi"
-];
-
-let tuoiChi=chi[nam%12];
-
-let diem=(nam%100)%10+90;
-
-if(diem>100){
-diem=100;
-}
-
-document.getElementById("ketqua2").innerHTML=`
-
-<div class="item">
-<b>Âm lịch:</b> Chức năng nâng cấp ở bản Pro
-</div>
-
-<div class="item">
-<b>Tam hợp:</b> ${tamHop[tuoiChi]}
-</div>
-
-<div class="item">
-<b>Tứ hành xung:</b> ${tuHanhXung[tuoiChi]}
-</div>
-
-<div class="item">
-<b>Giờ hoàng đạo:</b>
-${gioHoangDao.join(", ")}
-</div>
-
-<div class="item good">
-<b>Điểm phong thủy:</b>
-${diem}/100
-</div>
-
-`;
-
-}
-
-</script>
 
 </body>
 </html>
