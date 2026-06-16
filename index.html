@@ -174,10 +174,10 @@ id="ngaysinh">
 <option>Hợi (21h-23h)</option>
 
 </select>
-
-<button>
+<button onclick="xemCanChi()">
 XEM TỬ VI
 </button>
+
 
 </div>
 
@@ -243,7 +243,68 @@ document.getElementById("dongho").innerHTML=
 capNhatThoiGian();
 
 setInterval(capNhatThoiGian,1000);
+function xemCanChi(){
 
+let ns=document.getElementById("ngaysinh").value;
+
+if(!ns){
+
+alert("Vui lòng chọn ngày sinh");
+
+return;
+
+}
+
+let nam=parseInt(ns.substring(0,4));
+
+const can=[
+"Giáp",
+"Ất",
+"Bính",
+"Đinh",
+"Mậu",
+"Kỷ",
+"Canh",
+"Tân",
+"Nhâm",
+"Quý"
+];
+
+const chi=[
+"Tý",
+"Sửu",
+"Dần",
+"Mão",
+"Thìn",
+"Tỵ",
+"Ngọ",
+"Mùi",
+"Thân",
+"Dậu",
+"Tuất",
+"Hợi"
+];
+
+let canChi=
+can[(nam-4)%10]
++" "+
+chi[(nam-4)%12];
+
+document.getElementById("ketqua").style.display="block";
+
+document.getElementById("ketqua").innerHTML=`
+
+<div class="card-title">
+📜 Kết Quả
+</div>
+
+<div style="font-size:20px;padding:10px 0;">
+☯️ <b>${canChi}</b>
+</div>
+
+`;
+
+}
 </script>
 
 </body>
