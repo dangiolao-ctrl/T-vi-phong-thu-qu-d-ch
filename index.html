@@ -2,120 +2,14 @@
 <html lang="vi">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Phong Thủy Việt Pro</title>
 
-<style>
+<link rel="stylesheet" href="css/style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#f3f4f6;
-padding:15px;
-color:#333;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-}
-
-.header{
-background:linear-gradient(135deg,#b71c1c,#f57c00);
-color:white;
-padding:20px;
-border-radius:16px;
-text-align:center;
-margin-bottom:15px;
-box-shadow:0 3px 10px rgba(0,0,0,.15);
-}
-
-.header h1{
-font-size:28px;
-margin-bottom:8px;
-}
-
-.header p{
-font-size:14px;
-opacity:.9;
-}
-
-#dongho{
-margin-top:12px;
-font-size:15px;
-line-height:1.8;
-}
-
-.card{
-background:white;
-border-radius:16px;
-padding:18px;
-margin-bottom:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.card-title{
-font-size:20px;
-font-weight:bold;
-margin-bottom:15px;
-color:#b71c1c;
-border-left:5px solid #f57c00;
-padding-left:10px;
-}
-
-label{
-display:block;
-font-weight:bold;
-margin-bottom:6px;
-margin-top:12px;
-}
-
-input,
-select{
-width:100%;
-padding:12px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:16px;
-background:white;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:18px;
-border:none;
-border-radius:10px;
-background:#b71c1c;
-color:white;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-opacity:.95;
-}
-
-.result{
-display:none;
-}
-
-.footer{
-text-align:center;
-margin-top:20px;
-font-size:13px;
-color:#777;
-}
-
-</style>
 </head>
 
 <body>
@@ -160,152 +54,42 @@ id="ngaysinh">
 <label>Giờ sinh</label>
 <select id="giosinh">
 
-<option>Tý (23h-01h)</option>
-<option>Sửu (01h-03h)</option>
-<option>Dần (03h-05h)</option>
-<option>Mão (05h-07h)</option>
-<option>Thìn (07h-09h)</option>
-<option>Tỵ (09h-11h)</option>
-<option>Ngọ (11h-13h)</option>
-<option>Mùi (13h-15h)</option>
-<option>Thân (15h-17h)</option>
-<option>Dậu (17h-19h)</option>
-<option>Tuất (19h-21h)</option>
-<option>Hợi (21h-23h)</option>
+<option>Tý</option>
+<option>Sửu</option>
+<option>Dần</option>
+<option>Mão</option>
+<option>Thìn</option>
+<option>Tỵ</option>
+<option>Ngọ</option>
+<option>Mùi</option>
+<option>Thân</option>
+<option>Dậu</option>
+<option>Tuất</option>
+<option>Hợi</option>
 
 </select>
+
 <button onclick="xemCanChi()">
 XEM TỬ VI
 </button>
 
-
 </div>
 
-<div class="card result" id="ketqua">
+<div class="card" id="ketqua">
 
 <div class="card-title">
 📜 Kết Quả
 </div>
 
-</div>
-
-<div class="footer">
-Phong Thủy Việt Pro © 2026
-</div>
+Chưa có dữ liệu
 
 </div>
 
-<script>
-
-function capNhatThoiGian(){
-
-const now=new Date();
-
-const thu=[
-"Chủ Nhật",
-"Thứ Hai",
-"Thứ Ba",
-"Thứ Tư",
-"Thứ Năm",
-"Thứ Sáu",
-"Thứ Bảy"
-];
-
-let ngay=
-String(now.getDate()).padStart(2,'0');
-
-let thang=
-String(now.getMonth()+1).padStart(2,'0');
-
-let nam=
-now.getFullYear();
-
-let gio=
-String(now.getHours()).padStart(2,'0');
-
-let phut=
-String(now.getMinutes()).padStart(2,'0');
-
-let giay=
-String(now.getSeconds()).padStart(2,'0');
-
-document.getElementById("dongho").innerHTML=
-`
-📅 ${thu[now.getDay()]}
-<br>
-🗓️ ${ngay}/${thang}/${nam}
-<br>
-🕒 ${gio}:${phut}:${giay} (24h)
-`;
-
-}
-
-capNhatThoiGian();
-
-setInterval(capNhatThoiGian,1000);
-function xemCanChi(){
-
-let ns=document.getElementById("ngaysinh").value;
-
-if(!ns){
-
-alert("Vui lòng chọn ngày sinh");
-
-return;
-
-}
-
-let nam=parseInt(ns.substring(0,4));
-
-const can=[
-"Giáp",
-"Ất",
-"Bính",
-"Đinh",
-"Mậu",
-"Kỷ",
-"Canh",
-"Tân",
-"Nhâm",
-"Quý"
-];
-
-const chi=[
-"Tý",
-"Sửu",
-"Dần",
-"Mão",
-"Thìn",
-"Tỵ",
-"Ngọ",
-"Mùi",
-"Thân",
-"Dậu",
-"Tuất",
-"Hợi"
-];
-
-let canChi=
-can[(nam-4)%10]
-+" "+
-chi[(nam-4)%12];
-
-document.getElementById("ketqua").style.display="block";
-
-document.getElementById("ketqua").innerHTML=`
-
-<div class="card-title">
-📜 Kết Quả
 </div>
 
-<div style="font-size:20px;padding:10px 0;">
-☯️ <b>${canChi}</b>
-</div>
-
-`;
-
-}
-</script>
+<script src="js/data.js"></script>
+<script src="js/tuvi.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
